@@ -1,5 +1,12 @@
+import Posts from "./components/Posts";
+
 function App() {
-  return <div>Hello To React World! Please learn to create models</div>;
+  return (
+    <div>
+      <h2>Posts</h2>
+      <Posts />
+    </div>
+  );
 }
 
 export default App;
