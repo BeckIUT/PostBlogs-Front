@@ -21,6 +21,10 @@ code {
   text-align: center;
 }
 
+.card:hover {
+  background-color: #09881e;
+}
+
 .card-list {
   display: flex;
   flex-direction: row;

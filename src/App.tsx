@@ -5,7 +5,6 @@ import { GetPostResponse } from "./rest/Responses/GetPostResponse";
 
 function App() {
   const [posts, setPosts] = useState<GetPostResponse[]>([]);
-  const url = (path: string) => `http://localhost:9999${path}`;
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,6 +17,7 @@ function App() {
 
     fetchData();
   }, []);
+
   return (
     <div>
       <h2>Posts</h2>
