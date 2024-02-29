@@ -11,3 +11,69 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.card {
+  width: 300px;
+  border: 5px solid #ddd;
+  border-radius: 8px;
+  background-color: #cecece;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-header {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-title {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+
+.card-description {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #696969;
+}
+
+.card-body {
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+}
+
+.card-body p {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.btn {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #800040;
+  color: white;
+  border: 1px solid #800040;
+  margin: 0 1rem;
+}
+
+.btn:hover {
+  background-color: #9c1458;
+  border-color: #9c1458;
+}
+
+.btn--alt {
+  background-color: transparent;
+  color: #800040;
+}
+
+.btn--alt:hover {
+  background-color: #f8dae9;
+}

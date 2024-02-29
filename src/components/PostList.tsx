@@ -13,7 +13,7 @@ type PostListProps = {
 
 function PostList({ posts }: PostListProps) {
   return (
-    <div>
+    <div className="card-list">
       {posts.map((post) => (
         <Post
           key={post.id}

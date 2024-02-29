@@ -1,6 +1,3 @@
-import "./post.css";
-import "./button.css";
-
 type PostProps = {
   id: string;
   title: string;
