@@ -6,11 +6,10 @@ type PostProps = {
 };
 
 function UpdatePost({ id, title, body, description }: PostProps) {
-  return (
-    <div>
-      <p>{id}</p>
-    </div>
-  );
+  function submitHandler(event: React.FormEvent<HTMLFormElement>) {
+    event?.preventDefault();
+  }
+  return <form className="form" onSubmit={submitHandler}></form>;
 }
 
 export default UpdatePost;
