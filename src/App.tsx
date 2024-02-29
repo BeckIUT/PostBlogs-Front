@@ -1,25 +1,26 @@
+import { useEffect, useState } from "react";
 import PostList from "./components/PostList";
-
-const DUMMY_DATA = [
-  {
-    id: "7c12cc7c-178e-4d70-984c-6856e45bcd96",
-    body: "Test body update",
-    description: "Updating",
-    title: "Test title3",
-  },
-  {
-    id: "1d041dd0-011d-4f2f-83d6-242e61fa965f",
-    body: "Test body",
-    description: "Test description",
-    title: "Test title",
-  },
-];
+import axios from "axios";
 
 function App() {
+  const [posts, setPosts] = useState([]);
+  const url = (path: string) => `http://localhost:9999${path}`;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(url("/posts/list"));
+        setPosts(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div>
       <h2>Posts</h2>
-      <PostList posts={DUMMY_DATA} />
+      <PostList posts={posts} />
     </div>
   );
 }

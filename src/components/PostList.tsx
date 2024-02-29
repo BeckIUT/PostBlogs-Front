@@ -1,16 +1,28 @@
 import Post from "./Post";
 
-function PostList(props) {
+type PostProps = {
+  id: string;
+  title: string;
+  body: string;
+  description: string;
+};
+
+type PostListProps = {
+  posts: PostProps[];
+};
+
+function PostList({ posts }: PostListProps) {
   return (
     <div>
-      {props.posts.map((post) => {
+      {posts.map((post) => (
         <Post
+          key={post.id}
           id={post.id}
           title={post.title}
           description={post.description}
           body={post.body}
-        />;
-      })}
+        />
+      ))}
     </div>
   );
 }

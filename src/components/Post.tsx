@@ -1,15 +1,22 @@
 import "./post.css";
 import "./button.css";
 
-function Post(props) {
+type PostProps = {
+  id: string;
+  title: string;
+  body: string;
+  description: string;
+};
+
+function Post({ id, title, description, body }: PostProps) {
   return (
     <div className="card">
       <div className="card-header">
-        <h3 className="card-title">{props.title}</h3>
-        <p className="card-description">{props.description}</p>
+        <h3 className="card-title">{title}</h3>
+        <p className="card-description">{description}</p>
         <div>
           <div className="card-content">
-            <p className="card-body">{props.body}</p>
+            <p className="card-body">{body}</p>
           </div>
         </div>
         <div>
