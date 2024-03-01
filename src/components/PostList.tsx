@@ -1,5 +1,4 @@
 import Post from "./Post";
-
 type PostProps = {
   id: string;
   title: string;
@@ -23,6 +22,7 @@ function PostList({ posts }: PostListProps) {
           body={post.body}
         />
       ))}
+      {}
     </div>
   );
 }
