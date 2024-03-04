@@ -6,11 +6,10 @@ type PostProps = {
   title: string;
   body: string;
   description: string;
-  onSubmit: () => void;
-  onClose: () => void;
+  onPostChange : () => void;
 };
 
-function UpdatePost({ id, title, body, description, onSubmit, onClose }: PostProps) {
+function UpdatePost({ id, title, body, description, onPostChange }: PostProps) {
   function submitHandler(event: React.FormEvent<HTMLFormElement>) {
     event?.preventDefault();
     try {
@@ -20,7 +19,9 @@ function UpdatePost({ id, title, body, description, onSubmit, onClose }: PostPro
         body: enteredBody,
         description: enteredDescription,
       };
-        updatePost(data).then();
+        updatePost(data).then(() => {
+          onPostChange();
+        });
      // updatePost(data).then((response: AxiosResponse<UpdatePostResponse, any>) => {
      //    const data: UpdatePostResponse = response.data
      //    console.info("Updated post: ", data);
@@ -28,7 +29,6 @@ function UpdatePost({ id, title, body, description, onSubmit, onClose }: PostPro
     } catch (error) {
       console.error("Error updating data:", error);
     }
-    onSubmit();
   }
 
   function changeTitleHandler(event: React.ChangeEvent<HTMLTextAreaElement>) {
@@ -64,7 +64,7 @@ function UpdatePost({ id, title, body, description, onSubmit, onClose }: PostPro
         <textarea id="body" value={enteredBody} onChange={changeBodyHandler} />
       </p>
       <p className="actions">
-        <button type="button" onClick={onClose}>Cancel</button>
+        <button type="button" onClick={onPostChange}>Cancel</button>
         <button>Submit</button>
       </p>
     </form>
