@@ -6,12 +6,12 @@ type PostProps = {
   title: string;
   body: string;
   description: string;
-  onPostChange: (isRender: boolean) => void;
+  onPostUpdate: (isRender: boolean) => void;
 };
 
-function UpdatePost({ id, title, body, description, onPostChange }: PostProps) {
+function UpdatePost({ id, title, body, description, onPostUpdate }: PostProps) {
   function cancelHandler(){
-    onPostChange(false);
+    onPostUpdate(false);
   }
   function submitHandler(event: React.FormEvent<HTMLFormElement>) {
     event?.preventDefault();
@@ -23,7 +23,7 @@ function UpdatePost({ id, title, body, description, onPostChange }: PostProps) {
         description: enteredDescription,
       };
       updatePost(data).then(() => {
-        onPostChange(true);
+        onPostUpdate(true);
       });
       // updatePost(data).then((response: AxiosResponse<UpdatePostResponse, any>) => {
       //    const data: UpdatePostResponse = response.data

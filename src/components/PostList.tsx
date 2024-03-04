@@ -33,7 +33,7 @@ function PostList({ posts, onChange }: PostListProps) {
     setUpdateId(id);
   }
 
-  function onPostChange(isRender: boolean = false){
+  function onPostUpdate(isRender: boolean = false){
     setUpdateId(undefined);
     if(isRender){
       onChange();
@@ -50,7 +50,7 @@ function PostList({ posts, onChange }: PostListProps) {
             title={post.title}
             description={post.description}
             body={post.body}
-            onPostChange={onPostChange}
+            onPostUpdate={onPostUpdate}
           />
         ) : deleteId === post.id ? (
               <DeletePost
