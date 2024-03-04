@@ -3,9 +3,11 @@ type PostProps = {
   title: string;
   body: string;
   description: string;
+  onUpdate: (id: string) => void;
 };
 
-function Post({ id, title, description, body }: PostProps) {
+function Post({ id, title, description, body, onUpdate }: PostProps) {
+  //
   return (
     <div className="card">
       <div className="card-header">
@@ -17,7 +19,9 @@ function Post({ id, title, description, body }: PostProps) {
           </div>
         </div>
         <div>
-          <button className="btn btn--alt">Update</button>
+          <button className="btn btn--alt" onClick={() => onUpdate(id)}>
+            Update
+          </button>
           <button className="btn">Delete</button>
         </div>
       </div>

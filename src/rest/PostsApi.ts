@@ -12,9 +12,7 @@ export const addPost = (params: {
   body: string;
   description: string;
 }) => {
-  const query = <AddPostRequest>{
-    ...params,
-  };
+  const query = params as AddPostRequest;
 
   return axios.post<AddPostResponse>(url("/posts"), query);
 };
@@ -25,11 +23,9 @@ export const updatePost = (params: {
   body: string;
   description: string;
 }) => {
-  const query = <UpdatePostRequest>{
-    ...params,
-  };
+  const query = params as UpdatePostRequest;
 
-  return axios.post<UpdatePostResponse>(url(`/posts/${params.id}`), query);
+  return axios.put<UpdatePostResponse>(url(`/posts/${params.id}`), query);
 };
 
 export const getPostList = () => {
