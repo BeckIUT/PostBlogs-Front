@@ -1,22 +1,14 @@
-import { useState } from "react";
-import UpdatePost from "./UpdatePost";
-
 type PostProps = {
   id: string;
   title: string;
   body: string;
   description: string;
+  onUpdate: (id: string) => void;
+  onDelete: (id: string) => void;
 };
 
-function Post({ id, title, description, body }: PostProps) {
-  const [isEditing, setIsEditing] = useState(false);
-
-  const OnUpdateHandler = () => {
-    setIsEditing(true);
-  };
-
-  const OnDeleteHandler = () => {};
-
+function Post({ id, title, description, body, onUpdate, onDelete }: PostProps) {
+  //
   return (
     <div className="card">
       <div className="card-header">
@@ -28,21 +20,10 @@ function Post({ id, title, description, body }: PostProps) {
           </div>
         </div>
         <div>
-          <button className="btn btn--alt" onClick={OnUpdateHandler}>
+          <button className="btn btn--alt" onClick={() => onUpdate(id)}>
             Update
           </button>
-          <button className="btn" onClick={OnDeleteHandler}>
-            Delete
-          </button>
-          {isEditing && (
-            <UpdatePost
-              key={id}
-              id={id}
-              title={title}
-              description={description}
-              body={body}
-            />
-          )}
+          <button className="btn" onClick={() => onDelete(id)}>Delete</button>
         </div>
       </div>
     </div>
