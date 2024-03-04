@@ -31,3 +31,7 @@ export const updatePost = (params: {
 export const getPostList = () => {
   return axios.get<GetPostResponse[]>(url("/posts/list"));
 };
+
+export const deletePost = (postId : string) => {
+  return axios.delete(url(`/posts/${postId}`));
+}

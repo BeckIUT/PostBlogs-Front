@@ -4,9 +4,10 @@ type PostProps = {
   body: string;
   description: string;
   onUpdate: (id: string) => void;
+  onDelete: (id: string) => void;
 };
 
-function Post({ id, title, description, body, onUpdate }: PostProps) {
+function Post({ id, title, description, body, onUpdate, onDelete }: PostProps) {
   //
   return (
     <div className="card">
@@ -22,7 +23,7 @@ function Post({ id, title, description, body, onUpdate }: PostProps) {
           <button className="btn btn--alt" onClick={() => onUpdate(id)}>
             Update
           </button>
-          <button className="btn">Delete</button>
+          <button className="btn" onClick={() => onDelete(id)}>Delete</button>
         </div>
       </div>
     </div>

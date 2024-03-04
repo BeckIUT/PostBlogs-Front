@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {MouseEventHandler, useState} from "react";
 import { updatePost } from "../rest/PostsApi";
 
 type PostProps = {
@@ -6,10 +6,13 @@ type PostProps = {
   title: string;
   body: string;
   description: string;
-  onPostChange: () => void;
+  onPostChange: (isRender: boolean) => void;
 };
 
 function UpdatePost({ id, title, body, description, onPostChange }: PostProps) {
+  function cancelHandler(){
+    onPostChange(false);
+  }
   function submitHandler(event: React.FormEvent<HTMLFormElement>) {
     event?.preventDefault();
     try {
@@ -20,7 +23,7 @@ function UpdatePost({ id, title, body, description, onPostChange }: PostProps) {
         description: enteredDescription,
       };
       updatePost(data).then(() => {
-        onPostChange();
+        onPostChange(true);
       });
       // updatePost(data).then((response: AxiosResponse<UpdatePostResponse, any>) => {
       //    const data: UpdatePostResponse = response.data
@@ -72,7 +75,7 @@ function UpdatePost({ id, title, body, description, onPostChange }: PostProps) {
         <textarea id="body" value={enteredBody} onChange={changeBodyHandler} />
       </p>
       <p className="actions">
-        <button type="button" onClick={onPostChange}>
+        <button onClick={cancelHandler}>
           Cancel
         </button>
         <button>Submit</button>
