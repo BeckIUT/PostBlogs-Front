@@ -8,9 +8,9 @@ import { UpdatePostResponse } from "./Responses/UpdatePostResponse";
 const url = (path: string) => `http://localhost:9999${path}`;
 
 export const addPost = (params: {
-  title: string;
-  body: string;
-  description: string;
+  title: string | undefined;
+  body: string | undefined;
+  description: string | undefined;
 }) => {
   const query = params as AddPostRequest;
 
