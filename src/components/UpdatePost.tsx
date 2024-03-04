@@ -6,7 +6,7 @@ type PostProps = {
   title: string;
   body: string;
   description: string;
-  onPostChange : () => void;
+  onPostChange: () => void;
 };
 
 function UpdatePost({ id, title, body, description, onPostChange }: PostProps) {
@@ -19,13 +19,13 @@ function UpdatePost({ id, title, body, description, onPostChange }: PostProps) {
         body: enteredBody,
         description: enteredDescription,
       };
-        updatePost(data).then(() => {
-          onPostChange();
-        });
-     // updatePost(data).then((response: AxiosResponse<UpdatePostResponse, any>) => {
-     //    const data: UpdatePostResponse = response.data
-     //    console.info("Updated post: ", data);
-     //  });
+      updatePost(data).then(() => {
+        onPostChange();
+      });
+      // updatePost(data).then((response: AxiosResponse<UpdatePostResponse, any>) => {
+      //    const data: UpdatePostResponse = response.data
+      //    console.info("Updated post: ", data);
+      //  });
     } catch (error) {
       console.error("Error updating data:", error);
     }
@@ -53,18 +53,28 @@ function UpdatePost({ id, title, body, description, onPostChange }: PostProps) {
     <form className="form" onSubmit={submitHandler}>
       <p>
         <label htmlFor="title">Title</label>
-        <textarea id="title" value={enteredTitle} onChange={changeTitleHandler} />
+        <textarea
+          id="title"
+          value={enteredTitle}
+          onChange={changeTitleHandler}
+        />
       </p>
       <p>
         <label htmlFor="description">Description</label>
-        <textarea id="description" value={enteredDescription} onChange={changeDescriptionHandler} />
+        <textarea
+          id="description"
+          value={enteredDescription}
+          onChange={changeDescriptionHandler}
+        />
       </p>
       <p>
         <label htmlFor="body">Body</label>
         <textarea id="body" value={enteredBody} onChange={changeBodyHandler} />
       </p>
       <p className="actions">
-        <button type="button" onClick={onPostChange}>Cancel</button>
+        <button type="button" onClick={onPostChange}>
+          Cancel
+        </button>
         <button>Submit</button>
       </p>
     </form>

@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import Post from "./Post";
 import UpdatePost from "./UpdatePost";
 type PostProps = {
@@ -13,7 +13,7 @@ type PostListProps = {
   onChange: () => void;
 };
 
-function PostList({posts, onChange} : PostListProps) {
+function PostList({ posts, onChange }: PostListProps) {
   const [updateId, setUpdateId] = useState<string>();
 
   function onUpdate(id: string) {
